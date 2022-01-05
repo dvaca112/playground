@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What's New!</title>
+    <link rel="stylesheet" href="../css/contact.css" />
+  </head>
+  <body>
+    <section>
+      <div class="bg"></div>
+      <header>
+        <a href="#" class="logo">Playground.</a>
+        <div class="toggle"></div>
+        <ul class="navigation">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="games.html">Games</a></li>
+          <li><a href="new.html">What's New</a></li>
+          <li><a href="#" class="active">Contact</a></li>
+        </ul>
+      </header>
+      <div class="content">
+        <div class="wrap-contact100">
+          <span class="contact100-form-symbol">
+            <img src="../Images/symbol-01.png" alt="SYMBOL-MAIL" />
+          </span>
+
+          <form class="contact100-form validate-form flex-sb flex-w">
+            <span class="contact100-form-title"> Drop Us A Message </span>
+
+            <div
+              class="wrap-input100 rs1 validate-input"
+              data-validate="Name is required"
+            >
+              <input
+                class="input100"
+                type="text"
+                name="name"
+                placeholder="Name"
+              />
+              <span class="focus-input100"></span>
+            </div>
+
+            <div
+              class="wrap-input100 rs1 validate-input"
+              data-validate="Email is required: e@a.z"
+            >
+              <input
+                class="input100"
+                type="text"
+                name="email"
+                placeholder="Email Address"
+              />
+              <span class="focus-input100"></span>
+            </div>
+
+            <div
+              class="wrap-input100 validate-input"
+              data-validate="Message is required"
+            >
+              <textarea
+                class="input100"
+                name="message"
+                placeholder="Write Us A Message"
+              ></textarea>
+              <span class="focus-input100"></span>
+            </div>
+
+            <div class="container-contact100-form-btn">
+              <button class="contact100-form-btn">Send</button>
+            </div>
+          </form>
+        </div>
+        <div class="imgBox">
+          <img src="/Images/clownfish.png" class="fruits" />
+        </div>
+      </div>
+      <ul class="thumb">
+        <li data-text="Red Crab">
+          <img
+            src="/Images/crab.png"
+            onclick="imgSlider('/Images/crab.png');changeBgColor('#fc4a55')"
+          />
+        </li>
+        <li data-text="Orange Fish" class="active">
+          <img
+            src="/Images/clownfish.png"
+            onclick="imgSlider('/Images/clownfish.png');changeBgColor('#ffad33')"
+          />
+        </li>
+        <li data-text="Yellow Fish">
+          <img
+            src="/Images/yellow-fish.png"
+            onclick="imgSlider('/Images/yellow-fish.png');changeBgColor('#ffff4d')"
+          />
+        </li>
+        <li data-text="Green Turtle">
+          <img
+            src="/Images/turtle.png"
+            onclick="imgSlider('/Images/turtle.png');changeBgColor('#66ff66')"
+          />
+        </li>
+        <li data-text="Blue Whale">
+          <img
+            src="/Images/whale.png"
+            onclick="imgSlider('/Images/whale.png');changeBgColor('#4d4dff')"
+          />
+        </li>
+        <li data-text="Purple Octopus">
+          <img
+            src="/Images/octopus.png"
+            onclick="imgSlider('/Images/octopus.png');changeBgColor('#ba1aff')"
+          />
+        </li>
+      </ul>
+    </section>
+
+    <script>
+      let menuToggle = document.querySelector(".toggle");
+      let navigation = document.querySelector(".navigation");
+      menuToggle.onclick = function () {
+        menuToggle.classList.toggle("active");
+        navigation.classList.toggle("active");
+      };
+
+      // change image on click
+      function imgSlider(anything) {
+        document.querySelector(".fruits").src = anything;
+      }
+
+      // change background color
+      function changeBgColor(color) {
+        const bg = document.querySelector(".bg");
+        bg.style.background = color;
+      }
+
+      // add active class in selected thmbnails
+      let el = document.querySelectorAll(".thumb li");
+      for (let i = 0; i < el.length; i++) {
+        el[i].onclick = function () {
+          var c = 0;
+          while (c < el.length) {
+            el[c++].className = "check";
+          }
+          el[i].className = "check active";
+        };
+      }
+    </script>
+  </body>
+</html>

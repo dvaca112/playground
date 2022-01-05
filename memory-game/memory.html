@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shapes!</title>
+    <!-- (A) CSS + JS -->
+    <link rel="stylesheet" href="memory.css" />
+    <script src="memory.js"></script>
+  </head>
+  <body>
+    <section>
+      <div class="bg"></div>
+      <header>
+        <a href="#" class="logo">Playground.</a>
+        <div class="toggle"></div>
+        <ul class="navigation">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="#" class="active">Games</a></li>
+          <li><a href="../html/new.html">What's New</a></li>
+          <li><a href="../html/contact.html">Contact</a></li>
+        </ul>
+      </header>
+      <div class="content">
+        <div class="textBox">
+          <h2>Shapes Memory Game</h2>
+          <p>
+            Help! Our friends are lost. Match all of the shapes to reunite our
+            friends!
+          </p>
+        </div>
+        <!-- (B) GAME CONTAINER -->
+        <div id="mem-game"></div>
+      </div>
+
+      <ul class="thumb">
+        <li data-text="Red" class="active">
+          <img
+            src="/Images/crab.png"
+            onclick="imgSlider('/Images/crab.png');changeBgColor('#fc4a55')"
+          />
+        </li>
+      </ul>
+    </section>
+
+    <script>
+      let menuToggle = document.querySelector(".toggle");
+      let navigation = document.querySelector(".navigation");
+      menuToggle.onclick = function () {
+        menuToggle.classList.toggle("active");
+        navigation.classList.toggle("active");
+      };
+
+      // change background color
+      function changeBgColor(color) {
+        const bg = document.querySelector(".bg");
+        bg.style.background = color;
+      }
+
+      // add active class in selected thmbnails
+      let el = document.querySelectorAll(".thumb li");
+      for (let i = 0; i < el.length; i++) {
+        el[i].onclick = function () {
+          var c = 0;
+          while (c < el.length) {
+            el[c++].className = "check";
+          }
+          el[i].className = "check active";
+        };
+      }
+    </script>
+  </body>
+</html>
